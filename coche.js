@@ -1,0 +1,53 @@
+const express = require('express');
+const router = express.Router();
+const dbConnection = require('./dbConnection');
+
+class Coche {
+    constructor(nombre,imagen,precioPorDia,estado) {
+        this.nombre = nombre;
+        this.imagen = imagen;
+        this.precioPorDia = precioPorDia;
+        this.estado = estado;
+    }
+}
+
+let coche = new Coche()
+//Listo -NO TOCAR-
+router.get('/', function (req, res) {
+    let db = dbConnection('coches');
+    let texto='';
+    db.collection('coches').find().toArray(function(err,datos){ 
+        for (let index = 0; index < datos.length; index++) {
+            
+            texto+=`<p>${datos[i].nombre}+${datos[i].imagen}+${datos[i].precioPorDia}+${datos[i].estado}</p>`;
+        }
+        res.send(texto);
+    });                
+})
+
+//
+router.post('/anyadirCoche', function (req, res) {
+    let db = dbConnection('coches');
+    db.collection('coches').find().toArray(function(err,datos){    
+        res.send('NO PUEDE AÑADIR COCHE (Solo el administrador)');
+    });
+});
+//
+router.put('/modificarCoche', function (req, res) {
+    //let db = dbConnection();
+    db.collection('coches').find().toArray(function(err,datos){
+        res.send('NO PUEDES MODIFICAR COCHE (Solo el administrador)');
+    });
+});
+
+//
+router.delete('/borrarCoche', function (req, res) {
+    //let db = dbConnection();
+    db.collection('coches').find().toArray(function(err,datos){
+        res.send('NO PUEDES BORRAR COCHE(Solo el administrador)');
+    });
+});
+
+
+
+module.exports=router;
