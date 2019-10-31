@@ -10,14 +10,30 @@ class Client {
 }
 
 router.get('/',function(req,res){
-    db.collection('clientes'.find().toArray();
-        res.send();
+    let db = dbConnection('coches');
+    let texto='';
+    db.collection('clientes').find().toArray(function(err,datos){
+        for (let i = 0; i < datos.length; i++){
+            texto +=
+            `<div>
+            <p>${datos[i].nombre}</p>
+            </div>
+           <div>
+           <p><img src=${datos[i].imagen} alt=""/></p>
+           </div>
+           <div>
+           <p>${datos[i].precioPorDia}</p>
+           <p>${datos[i].estado}</p>
+           </div>` 
+            res.send(texto);
+        }
+    });
     });
 router.get('/anyadirCliente', function (req, res) {
     
     db.collection('clientes').find().toArray();
     res.send('reserva cliente');
-
+})
 
 
 
