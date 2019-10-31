@@ -19,7 +19,10 @@ router.get('/', function (req, res) {
     db.collection('coches').find().toArray(function(err,datos){ 
         for (let index = 0; index < datos.length; index++) {
             
-            texto+=`<p>${datos[i].nombre}+${datos[i].imagen}+${datos[i].precioPorDia}+${datos[i].estado}</p>`;
+            texto+=`<p>${datos[i].nombre}</p>`;
+                    `<p>${datos[i].imagen}</p>`;
+                    `<p>${datos[i].precioPorDia}</p>`;
+                    `<p>${datos[i].estado}</p>`;
         }
         res.send(texto);
     });                
