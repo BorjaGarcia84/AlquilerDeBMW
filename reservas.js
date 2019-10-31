@@ -18,10 +18,15 @@ router.get('/', function (req, res) {
 
     });
 });
-router.get('/anyadirReserva', function (req, res) {
-    
+router.get('/anyadirReserva', function (err, datos) {
     db.collection('reservas').find().toArray();
-    res.send('reserva añadida');
+    for (let i = 0; i < estado.length; i++) {
+        texto +=
+        `<div>
+            <p>${datos[i].estado}</p>
+        </div>`
+    }
+    res.send('reserva añadida' + estado);
 });
 router.put('/modificarReserva', function (req, res) {
     let db = dbConnection();
