@@ -18,7 +18,7 @@ router.get('/', function (req, res) {
 
     });
 });
-router.post('/anyadirReserva', function (req, res) {
+router.get('/anyadirReserva', function (req, res) {
     
     db.collection('reservas').find().toArray();
     res.send('reserva añadida');

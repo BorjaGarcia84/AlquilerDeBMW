@@ -10,10 +10,13 @@ class Client {
 }
 
 router.get('/',function(req,res){
+    db.collection('clientes'.find().toArray();
+        res.send();
+    });
+router.get('/anyadirCliente', function (req, res) {
     
-
-})
-
+    db.collection('clientes').find().toArray();
+    res.send('reserva cliente');
 
 
 
