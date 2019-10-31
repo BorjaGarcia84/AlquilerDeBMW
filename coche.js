@@ -17,12 +17,19 @@ router.get('/', function (req, res) {
     let db = dbConnection('coches');
     let texto='';
     db.collection('coches').find().toArray(function(err,datos){ 
-        for (let index = 0; index < datos.length; index++) {
-            
-            texto+=`<p>${datos[i].nombre}</p>`;
-                    `<p>${datos[i].imagen}</p>`;
-                    `<p>${datos[i].precioPorDia}</p>`;
-                    `<p>${datos[i].estado}</p>`;
+        for (let i = 0; i < datos.length; i++) {
+             
+            texto+=
+             `<div>
+             <p>${datos[i].nombre}</p>
+             </div>
+            <div>
+            <p><img src=${datos[i].imagen} alt=""/></p>
+            </div>
+            <div>
+            <p>${datos[i].precioPorDia}</p>
+            <p>${datos[i].estado}</p>
+            </div>`  
         }
         res.send(texto);
     });                
