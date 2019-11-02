@@ -10,7 +10,7 @@ class Client {
 }
 
 router.get('/',function(req,res){
-    let db = dbConnection('coches');
+    let db = dbConnection('clientes');
     let texto='';
     db.collection('clientes').find().toArray(function(err,datos){
         for (let i = 0; i < datos.length; i++){
@@ -19,21 +19,24 @@ router.get('/',function(req,res){
             <p>${datos[i].nombre}</p>
             </div>
            <div>
-           <p><img src=${datos[i].imagen} alt=""/></p>
-           </div>
-           <div>
-           <p>${datos[i].precioPorDia}</p>
-           <p>${datos[i].estado}</p>
+           <p><img src=${datos[i].DNI} alt=""/></p>
            </div>` 
             res.send(texto);
         }
     });
     });
-router.get('/anyadirCliente', function (req, res) {
+router.post('/anyadirCliente', function (req, res) {
     
-    db.collection('clientes').find().toArray();
+    db.collection('/clientes').find().toArray();
     res.send('reserva cliente');
 })
+router.delete('/borrarCliente', function (req, res) {
+    let db = dbConnection('clientes');
+    db.collection('clientes').find().toArray();
+    res.send('cliente borrado');
+});
+
+
 
 
 

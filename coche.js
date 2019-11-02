@@ -35,24 +35,24 @@ router.get('/', function (req, res) {
     });                
 })
 
-//
+//CON POSTMAN FUNCIONA RESPUESTA
 router.post('/anyadirCoche', function (req, res) {
     let db = dbConnection('coches');
     db.collection('coches').find().toArray(function(err,datos){    
         res.send('NO PUEDE AÑADIR COCHE (Solo el administrador)');
     });
 });
-//
+//CON POSTMAN FUNCIONA RESPUESTA
 router.put('/modificarCoche', function (req, res) {
-    //let db = dbConnection();
+    let db = dbConnection('coches');
     db.collection('coches').find().toArray(function(err,datos){
         res.send('NO PUEDES MODIFICAR COCHE (Solo el administrador)');
     });
 });
 
-//
+//CON POSTMAN FUNCIONA RESPUESTA
 router.delete('/borrarCoche', function (req, res) {
-    //let db = dbConnection();
+    let db = dbConnection('coche');
     db.collection('coches').find().toArray(function(err,datos){
         res.send('NO PUEDES BORRAR COCHE(Solo el administrador)');
     });
