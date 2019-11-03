@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
+router.use(express.urlencoded({ extended: false }))            //para accesoder al body y que no sea indefinido
 const dbConnection = require('./dbConnection');
+const MongoClient = require('mongodb').MongoClient;
 
 class Reservas {
-    constructor(nombre, DNI,coche,dias) {
+    constructor(nombre, DNI, coche, dias) {
         this.nombre = nombre;
         this.DNI = DNI;
         this.coche = coche;
-        this.dias= dias
+        this.dias = dias
     }
 }
 
@@ -21,7 +23,7 @@ router.get('/listaReservas', function (req, res) {
     db.collection('reservas').find().toArray(function (err, datos) {
         for (let i = 0; i < datos.length; i++) {
             texto1 +=
-            `<div>
+                `<div>
             <p>${datos[i].nombre}</p>
             </div>
            <div>
@@ -30,19 +32,28 @@ router.get('/listaReservas', function (req, res) {
            <div>
            <p>${datos[i].coche}</p>
            <p>${datos[i].dias}</p>
-           </div>` 
-    }})
-        res.send(texto1);
-
-    });
-
-//AÑADIR RESERVA
-router.put('/anyadirReserva', function (err, datos) {
-    db.collection('reservas').find().toArray(function(req,res){
-        for (let i = 0; i < datos.length; i++) {
-            res.send('reserva añadida' + datos);
+           </div>`
         }
     })
+    res.send(texto1);
+
+});
+
+//AÑADIR RESERVA
+//descripcion:añadir reserva eligiendo el vehiculo
+//entrada: nombre,dni y dias
+//salida :JSON nombre,dni ,dias y vehiculo.
+//Añadir reserva
+router.post('/anyadirReserva', function (req, res) {
+    console.log(req)
+    let name = req.body.nombre;
+    let DNI = req.body.DNI;
+    let coche = req.body.coche;
+    let dias = req.body.dias;
+    let db = dbConnection();
+    db.collection('reservas').insertOne({ nombre: name, DNI: DNI, coche: coche, dias: dias })
+
+    res.send('hola mundo' + name + DNI + coche + dias)
 });
 
 //MODIFICAR RESERVA   

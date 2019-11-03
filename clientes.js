@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const dbConnection = require('./dbConnection');
+const MongoClient = require('mongodb').MongoClient;
 
 class Client {
     constructor(nombre,DNI){
@@ -25,6 +26,9 @@ router.get('/',function(req,res){
         }
     });
     });
+
+    //Añadir Cliente
+    //
 router.post('/anyadirCliente', function (req, res) {
     
     db.collection('/clientes').find().toArray();

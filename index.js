@@ -8,7 +8,7 @@ app.use(express.static('public'))
 
 const MongoClient = require('mongodb').MongoClient;
 
-let db;
+var db;
 MongoClient.connect('mongodb://localhost:27017',
     function (err, client) {
         if (err !== null) {

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const dbConnection = require('./dbConnection');
+const MongoClient = require('mongodb').MongoClient;
+router.use(express.urlencoded({ extended: false }))            //para accesoder al body y que no sea indefinido
 
 class Coche {
     constructor(nombre,imagen,precioPorDia,estado) {
@@ -13,8 +15,22 @@ class Coche {
 
 let coche = new Coche()
 //Listo -NO TOCAR-
+
+
+//seleccionar coche elegido en html
+//req viene la seleccion del coche
+//JSON mandar imagen del coche seleccionado,nombre.precio,estado,si esta libre que se pueda reservar
+//si esta libre que puedas reservarlo
 router.get('/', function (req, res) {
-    let db = dbConnection('coches');
+    console.log(req)
+    
+    let db = dbConnection()
+    let promiseCoche=db.collection('coches').findOne({"nombre":req.query.coche})
+    promiseCoche.then(function(coche){
+        res.send(coche)
+    })
+
+  /*  let db = dbConnection('coches');
     let texto='';
     db.collection('coches').find().toArray(function(err,datos){ 
         for (let i = 0; i < datos.length; i++) {
@@ -32,7 +48,7 @@ router.get('/', function (req, res) {
             </div>`  
         }
         res.send(texto);
-    });                
+    });  */              
 })
 
 //CON POSTMAN FUNCIONA RESPUESTA
