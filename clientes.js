@@ -30,7 +30,6 @@ router.get('/',function(req,res){
     //Añadir Cliente
     //
 router.post('/anyadirCliente', function (req, res) {
-    
     db.collection('/clientes').find().toArray();
     res.send('reserva cliente');
 })

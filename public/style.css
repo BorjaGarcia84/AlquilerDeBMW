@@ -1,11 +1,16 @@
 body{
-    
+    background-image: url('logo-frontal-bmw.jpg');
+    background-size: cover;
 }
 #encabezado{
-
+    font-family: 'Lakki Reddy', cursive;
+    display: flex;
+    justify-content: center;
+    color: #ff5252;
 }
 #lista{
-
+    display: flex;
+    justify-content: center;
 }
 #client{
 
