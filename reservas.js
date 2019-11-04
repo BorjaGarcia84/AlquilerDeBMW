@@ -17,7 +17,7 @@ let reserva = new Reservas();
 
 
 //LISTA DE RESERVAS
-router.get('/listaReservas', function (req, res) {
+router.get('/', function (req, res) {
     let db = dbConnection('reservas');
     let texto1 = '';
     db.collection('reservas').find().toArray(function (err, datos) {
@@ -45,15 +45,10 @@ router.get('/listaReservas', function (req, res) {
 //salida :JSON nombre,dni ,dias y vehiculo.
 //Añadir reserva
 router.post('/anyadirReserva', function (req, res) {
-    console.log(req)
-    let name = req.body.nombre;
-    let DNI = req.body.DNI;
-    let coche = req.body.coche;
-    let dias = req.body.dias;
-    let db = dbConnection();
-    db.collection('reservas').insertOne({ nombre: name, DNI: DNI, coche: coche, dias: dias })
-
-    res.send('hola mundo' + name + DNI + coche + dias)
+    let db = dbConnection('reservas');
+    db.collection('reservas').find().toArray(function (err, datos) {
+        res.send('reserva añadida');
+    });
 });
 
 //MODIFICAR RESERVA   
