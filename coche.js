@@ -24,20 +24,22 @@ router.get('/', function (req, res) {
             console.log(err);
             return;
         }
-        for (let i = 0; i < datos.length; i++) {
-            texto +=
-                `<div>
-             <p><strong>${datos[i].nombre}</strong></p>
-             </div>
-            <div>
-            <p><img src=${datos[i].imagen} alt=""/></p>
-            </div>
-            <div>
-            <p>${datos[i].precioPorDia}</p>
-            <p>${datos[i].estado}</p>
-            </div>`
-        }
-        res.send(texto)
+        console.log(datos);
+
+        // for (let i = 0; i < datos.length; i++) {
+        //     texto +=
+        //         `<div>
+        //      <p><strong>${datos[i].nombre}</strong></p>
+        //      </div>
+        //     <div>
+        //     <p><img src=${datos[i].imagen} alt=""/></p>
+        //     </div>
+        //     <div>
+        //     <p>${datos[i].precioPorDia}</p>
+        //     <p>${datos[i].estado}</p>
+        //     </div>`
+        // }
+        res.send(datos)
     });
 })
 //POSTMAN FUNCIONA RESPUESTA

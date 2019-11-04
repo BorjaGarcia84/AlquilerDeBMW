@@ -23,7 +23,7 @@ justify-content: center;
 
 }
 .s3{
-
+   
 }
 .s4{
 
@@ -48,6 +48,8 @@ justify-content: center;
     display: flex;
     justify-content: flex-end;
 }
-#resultados{
-
+#resultadoCoche{
+    display: flex;
+    justify-content: center;
+    color: white;
 }
