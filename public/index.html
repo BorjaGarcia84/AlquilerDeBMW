@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="coche.html">
-    
+
 
     <link href="https://fonts.googleapis.com/css?family=Lakki+Reddy&display=swap" rel="stylesheet">
 </head>
@@ -20,21 +20,19 @@
     </div>
     <!--Coches-->
     <div id="lista">
-            <select name="coches" id="selectCoches">
-                <option value="">Elegir BMW</option>
-                <option class="s1" value="serie1">BMW Serie 1</option>
-                <option class="s2" value="serie2">BMW Serie 2</option>
-                <option class="s3" value="serie3">BMW Serie 3</option>
-                <option class="s4" value="serie4">BMW Serie 4</option>
-                <option class="s5" value="serie5">BMW Serie 5</option>
-                <option class="s6" value="serie6">BMW Serie 6</option>
-                <option class="s7" value="serie7">BMW Serie 7</option>
-                <option class="s8" value="serie8">BMW Serie 8</option>
-            </select>
-            <button onclick="mostrarCoche()">Buscar</button>
+        <select name="coches" id="selectCoches">
+            <option value="">Elegir BMW</option>
+            <option class="s1" value="serie1">BMW Serie 1</option>
+            <option class="s2" value="serie2">BMW Serie 2</option>
+            <option class="s3" value="serie3">BMW Serie 3</option>
+            <option class="s4" value="serie4">BMW Serie 4</option>
+            <option class="s5" value="serie5">BMW Serie 5</option>
+            <option class="s6" value="serie6">BMW Serie 6</option>
+            <option class="s7" value="serie7">BMW Serie 7</option>
+            <option class="s8" value="serie8">BMW Serie 8</option>
+        </select>
+        <button onclick="mostrarCoche()">Buscar</button>
     </div>
-
-    
 
     <div id="resultadoCoche"></div>
 
@@ -51,7 +49,7 @@
 
     <!--Reservas-->
     <div id="reservas">
-        <form action="/reservas.js">
+        <form action="/reservas.js" id="selectReserva">
             <input type="text" placeholder="cliente">
             <input type="text" placeholder="DNI">
             <button onclick="mostrarReserva()">Buscar Reserva</button>
@@ -60,17 +58,17 @@
 
     <div id="resultadoReservas"></div>
 
-<script>
+    <script>
 
-function mostrarCoche(){
-    let coche = document.getElementById('selectCoches').value;
-    fetch('http://localhost:3000/coche?coches='+coche)
-    .then(function(respuesta){
-        return respuesta.json();
-    })
-    .then(function(datos){
-        document.getElementById('resultadoCoche').innerHTML =
-             `<div>
+        function mostrarCoche() {
+            let coche = document.getElementById('selectCoches').value;
+            fetch('http://localhost:3000/coche?coches=' + coche)
+                .then(function (respuesta) {
+                    return respuesta.json();
+                })
+                .then(function (datos) {
+                    document.getElementById('resultadoCoche').innerHTML =
+                        `<div>
              <p>Nombre: <strong>${datos[0].nombre} </strong></p>
              </div>
             <div>
@@ -80,26 +78,44 @@ function mostrarCoche(){
             <p>Precio/Dias: ${datos[0].precioPorDia} </p>
             <p>Estado: ${datos[0].estado} </p>
             </div>`;
-    })
-}
+                })
+        }
 
-function mostrarCliente(){
-    let coche = document.getElementById('selectClientes').value;
-    fetch('http://localhost:3000/clientes?clientes='+cliente)
-    .then(function(respuesta){
-        return respuesta.json();
-    })
-    .then(function(datos){
-        document.getElementById('resultadoCliente').innerHTML =
-        `<div>
-           <p>${datos[i].nombre}</p>
-        </div>
-        <div>
-            <p>${datos[i].DNI}</p>
-        </div>`;
-    })
-}
-</script>
+        function mostrarCliente() {
+            let cliente = document.getElementById('selectClientes').value;
+            fetch('http://localhost:3000/clientes?clientes=' + cliente)
+                .then(function (respuesta) {
+                    return respuesta.json();
+                })
+                .then(function (datos) {
+                    document.getElementById('resultadoCliente').innerHTML =
+                        `<div>
+                            <p>${datos[i].nombre}</p>
+                        </div>
+                        <div>
+                            <p>${datos[i].DNI}</p>
+                        </div>`;
+                })
+        }
+
+        function mostrarResultado() {
+            let reserva = document.getElementById('selectReserva').value;
+            fetch('http://localhost:3000/reservas?clientes=' + reserva)
+                .then(function (respuesta) {
+                    return respuesta.json();
+                })
+                .then(function (datos) {
+                    document.getElementById('resultadoReserva').innerHTML =
+                    `<div>
+                        <p>${datos[i].nombre}</p>
+                    </div>
+                    <div>
+                        <p>${datos[i].coche}</p>
+                        <p>${datos[i].dias}</p>
+                    </div>`
+                })
+
+    </script>
 </body>
 
 </html>
