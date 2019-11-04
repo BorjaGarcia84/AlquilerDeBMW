@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Alquiler</title>
-    
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="coche.html">
+    
 
     <link href="https://fonts.googleapis.com/css?family=Lakki+Reddy&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div id="encabezado">
         <h1>Alquiler De BMW</h1>
     </div>
-
+    <!--Coches-->
     <div id="lista">
         <form action="/coche">
             <select name="coches">
@@ -29,23 +32,33 @@
                 <option value="serie7">BMW Serie 7</option>
                 <option value="serie8">BMW Serie 8</option>
             </select>
-                <button onclick="buscar()" >Buscar</button>
-        </form>
-    </div>
-    <div id="client">
-        <form action="/clientes.js">
-        <input type="text" placeholder="cliente">
-        <button onclick="buscarClient()">Buscar Cliente</button>
-        </form>
-    </div>
-
-    <div id="reservas">
-        <form action="/reservas.js">
-        <input type="text" placeholder="reservas">
-        <button onclick="buscarReservas()">Buscar Reserva</button>
+            <button>Buscar</button>
         </form>
     </div>
 
     <div id="resultado"></div>
+
+    <!--Clientes-->
+    <div id="client">
+        <form action="/clientes.js">
+            <input type="text" placeholder="cliente">
+            <input type="text" placeholder="DNI">
+            <button onclick="">Buscar Cliente</button>
+        </form>
+    </div>
+
+    <!--Reservas-->
+    <div id="reservas">
+        <form action="/reservas.js">
+            <input type="text" placeholder="cliente">
+            <input type="text" placeholder="DNI">
+            <button>Buscar Reserva</button>
+        </form>
+    </div>
+
+    <div id="ResultadoReservas"></div>
+
+
 </body>
+
 </html>

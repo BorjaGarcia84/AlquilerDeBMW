@@ -20,7 +20,7 @@ let reserva = new Reservas();
 router.get('/', function (req, res) {
     let db = dbConnection('reservas');
     let texto1 = '';
-    db.collection('reservas').find().toArray(function (err, datos) {
+    db.collection('reservas').find({nombre:req.query.reservas,DNI:req.query.reservas}).toArray(function (err, datos) {
         if(err!==null){
             console.log(err);
             return;

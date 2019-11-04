@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
     console.log(req)
     let db = dbConnection('clientes');
     let texto = '';
-    db.collection('clientes').find().toArray(function (err, datos) {
+    db.collection('clientes').find({nombre:req.query.clientes,DNI:req.query.clientes}).toArray(function (err, datos) {
         if(err!==null){
             console.log(err);
             return;

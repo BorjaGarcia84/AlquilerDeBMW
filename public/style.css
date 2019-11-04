@@ -1,4 +1,6 @@
 body{
+    margin: 0;
+    padding: 0;
     background-image: url('logo-frontal-bmw.jpg');
     background-size: cover;
 }
@@ -12,7 +14,7 @@ body{
     display: flex;
     justify-content: center;
 }
-/*#client{
+#client{
 
 }
 #reservas{
@@ -20,4 +22,4 @@ body{
 }
 #resultados{
 
-}*/
+}
