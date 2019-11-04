@@ -90,10 +90,10 @@
                 .then(function (datos) {
                     document.getElementById('resultadoCliente').innerHTML =
                         `<div>
-                            <p>${datos[i].nombre}</p>
+                            <p>${datos[0].nombre}</p>
                         </div>
                         <div>
-                            <p>${datos[i].DNI}</p>
+                            <p>${datos[0].DNI}</p>
                         </div>`;
                 })
         }
@@ -106,15 +106,15 @@
                 })
                 .then(function (datos) {
                     document.getElementById('resultadoReserva').innerHTML =
-                    `<div>
-                        <p>${datos[i].nombre}</p>
+                        `<div>
+                        <p>${datos[0].nombre}</p>
                     </div>
                     <div>
-                        <p>${datos[i].coche}</p>
-                        <p>${datos[i].dias}</p>
+                        <p>${datos[0].coche}</p>
+                        <p>${datos[0].dias}</p>
                     </div>`
                 })
-            }
+        }
 
     </script>
 </body>
