@@ -22,15 +22,15 @@ router.get('/', function (req, res) {
             console.log(err);
             return;
         }
-        for (let i = 0; i < datos.length; i++) {
-            texto +=
-                `<div>
-            <p>${datos[i].nombre}</p>
-            </div>
-            <div>
-            <p>${datos[i].DNI}</p>
-            </div>`
-        }
+        //for (let i = 0; i < datos.length; i++) {
+        //    texto +=
+        //        `<div>
+        //    <p>${datos[i].nombre}</p>
+        //    </div>
+        //    <div>
+        //    <p>${datos[i].DNI}</p>
+        //    </div>`
+        //}
             res.send(texto);
     });
 });
