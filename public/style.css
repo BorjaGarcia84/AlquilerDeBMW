@@ -1,10 +1,57 @@
-body{
+.numero1{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     background-image: url('logo-frontal-bmw.jpg');
     background-size: cover;
 }
+.numero2{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-image: url('national-customer.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.numero3{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-image: url('reservas-bmw.jpg');
+    background-size: cover;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+    border-right:1px solid #bbb;
+  }
+  
+  li:last-child {
+    border-right: none;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    background-color: #4CAF50;
+  }
 #encabezado{
     font-family: 'Lakki Reddy', cursive;
     display: flex;
@@ -41,12 +88,12 @@ justify-content: center;
 
 }*/
 #client{
-    display: flex;
-    justify-content: flex-start;
+  display: flex;
+  justify-content: center;
 }
 #reservas{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 #resultadoCoche{
     display: flex;

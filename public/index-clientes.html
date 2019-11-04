@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ew">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="index.html">
+    <link rel="stylesheet" href="index-clientes.html">
+    <link rel="stylesheet" href="index-reservas.html">
+
+</head>
+
+<body class="numero2">
+    <ul>
+        <li><a class="active" href="index.html">Pagina Principal</a></li>
+        <li><a href="index-clientes.html">Clientes</a></li>
+        <li><a href="index-reservas.html">Reservas</a></li>
+    
+    </ul>
+
+
+    <div id="client">
+        <form action="/clientes.js" id="selectCliente">
+            <input type="text" placeholder="cliente">
+            <input type="text" placeholder="DNI">
+            <button onclick="mostrarCliente()">Buscar Cliente</button>
+        </form>
+    </div>
+
+    <div id="resultadoClientes"></div>
+
+    <script>
+
+        function mostrarCliente() {
+            let cliente = document.getElementById('selectClientes').value;
+            fetch('http://localhost:3000/clientes?clientes=' + cliente)
+                .then(function (respuesta) {
+                    return respuesta.json();
+                })
+                .then(function (datos) {
+                    document.getElementById('resultadoCliente').innerHTML =
+                        `<div>
+                            <p>${datos[0].nombre}</p>
+                        </div>
+                        <div>
+                            <p>${datos[0].DNI}</p>
+                        </div>`;
+                })
+        }
+
+    </script>
+</body>
+
+</html>

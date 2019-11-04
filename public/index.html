@@ -8,13 +8,26 @@
     <title>Alquiler</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="coche.html">
 
+    <link rel="stylesheet" href="index-coche.html">
+    <link rel="stylesheet" href="index-clientes.html">
+    <link rel="stylesheet" href="index-reservas.html">
+    
 
     <link href="https://fonts.googleapis.com/css?family=Lakki+Reddy&display=swap" rel="stylesheet">
+
+
 </head>
 
-<body>
+<body class="numero1">
+    <ul>
+        <li><a class="active" href="index.html">Pagina Principal</a></li>
+        <li><a href="index-clientes.html">Clientes</a></li>
+        <li><a href="index-reservas.html">Reservas</a></li>
+        
+    </ul>
+
+    
     <div id="encabezado">
         <h1>Alquiler De BMW</h1>
     </div>
@@ -37,7 +50,7 @@
     <div id="resultadoCoche"></div>
 
     <!--Clientes-->
-    <div id="client">
+    <!--<div id="client">
         <form action="/clientes.js" id="selectCliente">
             <input type="text" placeholder="cliente">
             <input type="text" placeholder="DNI">
@@ -47,7 +60,7 @@
 
     <div id="resultadoClientes"></div>
 
-    <!--Reservas-->
+    <!-Reservas--
     <div id="reservas">
         <form action="/reservas.js" id="selectReserva">
             <input type="text" placeholder="cliente">
@@ -56,7 +69,7 @@
         </form>
     </div>
 
-    <div id="resultadoReservas"></div>
+    <div id="resultadoReservas"></div>-->
 
     <script>
 
@@ -81,24 +94,24 @@
                 })
         }
 
-        function mostrarCliente() {
-            let cliente = document.getElementById('selectClientes').value;
-            fetch('http://localhost:3000/clientes?clientes=' + cliente)
-                .then(function (respuesta) {
-                    return respuesta.json();
-                })
-                .then(function (datos) {
-                    document.getElementById('resultadoCliente').innerHTML =
-                        `<div>
-                            <p>${datos[0].nombre}</p>
-                        </div>
-                        <div>
-                            <p>${datos[0].DNI}</p>
-                        </div>`;
-                })
-        }
+        /* function mostrarCliente() {
+             let cliente = document.getElementById('selectClientes').value;
+             fetch('http://localhost:3000/clientes?clientes=' + cliente)
+                 .then(function (respuesta) {
+                     return respuesta.json();
+                 })
+                 .then(function (datos) {
+                     document.getElementById('resultadoCliente').innerHTML =
+                         `<div>
+                             <p>${datos[0].nombre}</p>
+                         </div>
+                         <div>
+                             <p>${datos[0].DNI}</p>
+                         </div>`;
+                 })
+         }  */
 
-        function mostrarResultado() {
+        /* function mostrarResultado() {
             let reserva = document.getElementById('selectReserva').value;
             fetch('http://localhost:3000/reservas?reservas=' + reserva)
                 .then(function (respuesta) {
@@ -114,7 +127,7 @@
                         <p>${datos[0].dias}</p>
                     </div>`
                 })
-        }
+            } */
 
     </script>
 </body>
