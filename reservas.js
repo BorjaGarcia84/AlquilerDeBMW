@@ -59,8 +59,10 @@ router.post('/anyadirReserva', function (req, res) {
 //MODIFICAR RESERVA   
 router.put('/modificarReserva', function (req, res) {
     let db = dbConnection('reservas');
-    db.collection('reservas').find().toArray();
-    res.send('reserva modificada');
+    db.collection('reservas').find().toArray(function (err,datos){
+
+        res.send('reserva modificada');
+    })
 });
 
 //BORRAR RESERVA

@@ -48,7 +48,6 @@ router.get('/', function (req, res) {
         }
         res.send(texto);
     });
-    document.getElementById("resultado").innerHTML()
 })
 
 //CON POSTMAN FUNCIONA RESPUESTA
