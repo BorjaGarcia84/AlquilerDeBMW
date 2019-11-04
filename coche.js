@@ -37,7 +37,7 @@ router.get('/', function (req, res) {
             <p>${datos[i].estado}</p>
             </div>`
         }
-        res.send(texto);
+        res.send(texto)
     });
 })
 
