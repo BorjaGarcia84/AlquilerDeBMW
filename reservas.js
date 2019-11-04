@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-router.use(express.urlencoded({ extended: false }))            //para accesoder al body y que no sea indefinido
+router.use(express.urlencoded({ extended: false }))          
 const dbConnection = require('./dbConnection');
 const MongoClient = require('mongodb').MongoClient;
 
