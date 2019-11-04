@@ -24,16 +24,16 @@ router.get('/', function (req, res) {
             console.log(err);
             return;
         }
-        for (let i = 0; i < datos.length; i++) {
-            texto1 +=
-                `<div>
-            <p>${datos[i].nombre}</p>
-            </div>
-           <div>
-           <p>${datos[i].coche}</p>
-           <p>${datos[i].dias}</p>
-           </div>`
-        }
+        //for (let i = 0; i < datos.length; i++) {
+        //    texto1 +=
+        //        `<div>
+        //    <p>${datos[i].nombre}</p>
+        //    </div>
+        //   <div>
+        //   <p>${datos[i].coche}</p>
+        //   <p>${datos[i].dias}</p>
+        //   </div>`
+        //}
     })
     res.send(texto1);
 
