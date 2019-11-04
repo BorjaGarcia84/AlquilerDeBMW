@@ -9,12 +9,16 @@ class Client {
         this.DNI = DNI;
     }
 }
-//LISTA CLIENTES
+//LISTA CLIENTES        OK
 router.get('/', function (req, res) {
     console.log(req)
     let db = dbConnection('clientes');
     let texto = '';
     db.collection('clientes').find().toArray(function (err, datos) {
+        if(err!==null){
+            console.log(err);
+            return;
+        }
         for (let i = 0; i < datos.length; i++) {
             texto +=
                 `<div>
@@ -28,21 +32,21 @@ router.get('/', function (req, res) {
     });
 });
 
-//AÑADIR CLIENTES
+//AÑADIR CLIENTES           OK
 router.post('/anyadirCliente', function (req, res) {
     let db = dbConnection('clientes');
     db.collection('clientes').find().toArray(function (err, datos) {
         res.send('cliente añadido');
     });
 });
-//MODIFICAR CLIENTE
-router.put('/modificarCiente', function (req, res) {
+//MODIFICAR CLIENTE         OK
+router.put('/modificarCliente', function (req, res) {
     let db = dbConnection('clientes');
     db.collection('clientes').find().toArray(function (err, datos) {
         res.send('cliente modificado');
     });
 });
-//BORRAR CLIENTES
+//BORRAR CLIENTES           OK
 router.delete('/borrarCliente', function (req, res) {
     let db = dbConnection('clientes');
     db.collection('clientes').find().toArray();

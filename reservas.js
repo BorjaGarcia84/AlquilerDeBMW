@@ -16,11 +16,15 @@ class Reservas {
 let reserva = new Reservas();
 
 
-//LISTA DE RESERVAS
+//LISTA DE RESERVAS         OK
 router.get('/', function (req, res) {
     let db = dbConnection('reservas');
     let texto1 = '';
     db.collection('reservas').find().toArray(function (err, datos) {
+        if(err!==null){
+            console.log(err);
+            return;
+        }
         for (let i = 0; i < datos.length; i++) {
             texto1 +=
                 `<div>
@@ -39,11 +43,7 @@ router.get('/', function (req, res) {
 
 });
 
-//AÑADIR RESERVA
-//descripcion:añadir reserva eligiendo el vehiculo
-//entrada: nombre,dni y dias
-//salida :JSON nombre,dni ,dias y vehiculo.
-//Añadir reserva
+//AÑADIR RESERVA            OK
 router.post('/anyadirReserva', function (req, res) {
     let db = dbConnection('reservas');
     db.collection('reservas').find().toArray(function (err, datos) {
@@ -51,7 +51,7 @@ router.post('/anyadirReserva', function (req, res) {
     });
 });
 
-//MODIFICAR RESERVA   
+//MODIFICAR RESERVA             OK   
 router.put('/modificarReserva', function (req, res) {
     let db = dbConnection('reservas');
     db.collection('reservas').find().toArray(function (err,datos){
@@ -60,7 +60,7 @@ router.put('/modificarReserva', function (req, res) {
     })
 });
 
-//BORRAR RESERVA
+//BORRAR RESERVA            OK
 router.delete('/borrarReserva', function (req, res) {
     let db = dbConnection('reservas');
     db.collection('reservas').find().toArray();
