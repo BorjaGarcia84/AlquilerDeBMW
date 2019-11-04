@@ -9,12 +9,14 @@ class Client {
         this.DNI = DNI;
     }
 }
+let cliente = new Client()
+
 //LISTA CLIENTES        OK
 router.get('/', function (req, res) {
     console.log(req)
     let db = dbConnection('clientes');
     let texto = '';
-    db.collection('clientes').find({nombre:req.query.clientes,DNI:req.query.clientes}).toArray(function (err, datos) {
+    db.collection('clientes').find({nombre:req.query.clientes},{DNI:req.query.clientes}).toArray(function (err, datos) {
         if(err!==null){
             console.log(err);
             return;
@@ -25,10 +27,10 @@ router.get('/', function (req, res) {
             <p>${datos[i].nombre}</p>
             </div>
             <div>
-            <p><img src=${datos[i].DNI} alt=""/></p>
+            <p>${datos[i].DNI}</p>
             </div>`
-            res.send(texto);
         }
+            res.send(texto);
     });
 });
 

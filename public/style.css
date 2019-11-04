@@ -15,7 +15,7 @@ body{
     display: flex;
     justify-content: center;
 }
-.s1{
+/*s1{
 display: flex;
 justify-content: center;
 }
@@ -39,12 +39,14 @@ justify-content: center;
 }
 .s8{
 
-}
+}*/
 #client{
-    
+    display: flex;
+    justify-content: flex-start;
 }
 #reservas{
-
+    display: flex;
+    justify-content: flex-end;
 }
 #resultados{
 

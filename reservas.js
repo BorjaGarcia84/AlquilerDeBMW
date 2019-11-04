@@ -13,14 +13,12 @@ class Reservas {
     }
 }
 
-let reserva = new Reservas();
-
-
+let reserva = new Reservas()
 //LISTA DE RESERVAS         OK
 router.get('/', function (req, res) {
     let db = dbConnection('reservas');
     let texto1 = '';
-    db.collection('reservas').find({nombre:req.query.reservas,DNI:req.query.reservas}).toArray(function (err, datos) {
+    db.collection('reservas').find({nombre:req.query.reservas},{DNI:req.query.reservas},{coche:req.query.coche},{dias:req.query.dias}).toArray(function (err, datos) {
         if(err!==null){
             console.log(err);
             return;
@@ -30,9 +28,6 @@ router.get('/', function (req, res) {
                 `<div>
             <p>${datos[i].nombre}</p>
             </div>
-           <div>
-           <p><img src=${datos[i].DNI} alt=""/></p>
-           </div>
            <div>
            <p>${datos[i].coche}</p>
            <p>${datos[i].dias}</p>

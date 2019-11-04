@@ -27,7 +27,7 @@ router.get('/', function (req, res) {
         for (let i = 0; i < datos.length; i++) {
             texto +=
                 `<div>
-             <p>${datos[i].nombre}</p>
+             <p><strong>${datos[i].nombre}</strong></p>
              </div>
             <div>
             <p><img src=${datos[i].imagen} alt=""/></p>
