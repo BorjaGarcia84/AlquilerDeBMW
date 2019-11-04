@@ -9,6 +9,7 @@ class Client {
         this.DNI = DNI;
     }
 }
+
 let cliente = new Client()
 
 //LISTA CLIENTES        OK
