@@ -20,6 +20,10 @@ router.get('/', function (req, res) {
     let db = dbConnection('coches');
     let texto = '';
     db.collection('coches').find().toArray(function (err, datos) {
+        if(err!==null){
+            console.log(err);
+            return;
+        }
         for (let i = 0; i < datos.length; i++) {
             texto +=
                 `<div>

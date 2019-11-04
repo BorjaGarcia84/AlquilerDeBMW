@@ -36,7 +36,7 @@ router.post('/anyadirCliente', function (req, res) {
     });
 });
 //MODIFICAR CLIENTE
-router.put('/modificarCliente', function (req, res) {
+router.put('/modificarCiente', function (req, res) {
     let db = dbConnection('clientes');
     db.collection('clientes').find().toArray(function (err, datos) {
         res.send('cliente modificado');
