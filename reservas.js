@@ -16,6 +16,7 @@ class Reservas {
 let reserva = new Reservas()
 //LISTA DE RESERVAS         OK
 router.get('/', function (req, res) {
+    console.log(req)
     let db = dbConnection('reservas');
     let texto1 = '';
     db.collection('reservas').find({nombre:req.query.reservas},{DNI:req.query.reservas},{coche:req.query.coche},{dias:req.query.dias}).toArray(function (err, datos) {
