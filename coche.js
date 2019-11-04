@@ -40,7 +40,6 @@ router.get('/', function (req, res) {
         res.send(texto)
     });
 })
-
 //POSTMAN FUNCIONA RESPUESTA
 router.post('/anyadirCoche', function (req, res) {
     let db = dbConnection('coches');
@@ -55,7 +54,6 @@ router.put('/modificarCoche', function (req, res) {
         res.send('NO PUEDES MODIFICAR COCHE (Solo el administrador)');
     });
 });
-
 //POSTMAN FUNCIONA RESPUESTA
 router.delete('/borrarCoche', function (req, res) {
     let db = dbConnection('coche');
@@ -63,7 +61,5 @@ router.delete('/borrarCoche', function (req, res) {
         res.send('NO PUEDES BORRAR COCHE(Solo el administrador)');
     });
 });
-
-
 
 module.exports = router;
