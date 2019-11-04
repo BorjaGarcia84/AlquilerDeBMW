@@ -58,21 +58,4 @@ router.delete('/borrarCliente', function (req, res) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports = router;

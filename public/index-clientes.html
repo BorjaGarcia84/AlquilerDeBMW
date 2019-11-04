@@ -37,13 +37,13 @@
     <script>
 
         function mostrarCliente() {
-            let cliente = document.getElementById('selectClientes').value;
+            let cliente = document.getElementById('selectCliente').value;
             fetch('http://localhost:3000/clientes?clientes=' + cliente)
                 .then(function (respuesta) {
                     return respuesta.json();
                 })
                 .then(function (datos) {
-                    document.getElementById('resultadoCliente').innerHTML =
+                    document.getElementById('resultadoClientes').innerHTML =
                         `<div>
                             <p>${datos[0].nombre}</p>
                         </div>
