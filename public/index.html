@@ -100,7 +100,7 @@
 
         function mostrarResultado() {
             let reserva = document.getElementById('selectReserva').value;
-            fetch('http://localhost:3000/reservas?clientes=' + reserva)
+            fetch('http://localhost:3000/reservas?reservas=' + reserva)
                 .then(function (respuesta) {
                     return respuesta.json();
                 })
